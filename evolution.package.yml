@@ -1,0 +1,5 @@
+name: Evolution
+machine_name: evolution
+version: 0.0.1
+requirements:
+  - genrpg:^0.0.1
