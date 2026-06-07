@@ -1,7 +1,7 @@
 -- Created: 2026-05-17
 
 CREATE TABLE IF NOT EXISTS evolution.character_types (
-  guid uuid PRIMARY KEY,
+  guid uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   name text NOT NULL,
   tag_name text NOT NULL,
   tag_color text NOT NULL,
@@ -16,7 +16,7 @@ CREATE TRIGGER character_types_update_datetime
   FOR EACH ROW EXECUTE FUNCTION genrpg.set_update_datetime();
 
 CREATE TABLE IF NOT EXISTS evolution.characters (
-  guid uuid PRIMARY KEY,
+  guid uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   character_guid uuid NOT NULL REFERENCES genrpg.characters(guid) ON DELETE CASCADE,
   character_type_guid uuid REFERENCES evolution.character_types(guid) ON DELETE SET NULL,
   create_datetime timestamptz NOT NULL DEFAULT now(),

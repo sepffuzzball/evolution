@@ -1,5 +1,5 @@
 name: Evolution
 machine_name: evolution
-version: 0.0.5
+version: 0.0.6
 requirements:
   - genrpg:>=0.0.1
